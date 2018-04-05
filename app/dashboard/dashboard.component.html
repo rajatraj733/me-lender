@@ -1,0 +1,9 @@
+<ActionBar title="Dashboard" class="action-bar">
+    <!--<ActionBar.actionItems>
+        <ActionItem/>
+    </ActionBar.actionItems>-->
+</ActionBar>
+<GridLayout columns="*, auto" rows="80, 80, *" style="padding-top: 50%; background-color: black">
+    <Button text="Borrower's List" row="0" col="0" [nsRouterLink]="['/borrower-list']"></Button>
+    <Button text="Add new Borrower" row="1" col="0" [nsRouterLink]="['/new-borrower-list']"></Button>
+</GridLayout>

@@ -1,0 +1,21 @@
+<ActionBar title="Borrower's List" class="action-bar">
+    <!--<ActionBar.actionItems>
+        <ActionItem/>
+    </ActionBar.actionItems>-->
+</ActionBar>
+
+<GridLayout rows="80, *, auto" columns="*">
+    <SearchBar row="0" hint="Enter name" (textChange)="filter($event)"
+                ></SearchBar>
+    <ListView [items]="displayedBorrowerList" class="list-group" row="1">
+        <ng-template let-borrower="item">
+            <DockLayout class="list-group-item" stretchLastChild="false" [nsRouterLink]="['/borrower-details', borrower.contactId]">
+                <Label dock="right" [text]="'Due : '+borrower.amount"></Label>
+                <Label style="background-color: red" dock="bottom" style="font-size: 12px;" [text]="borrower.lastPaid?'Last Paid: '+borrower.lastPaid:'Not Paid Yet'"></Label>
+                <Label  dock="left" [text]="borrower.name?borrower.name.toUpperCase():''"></Label>
+            </DockLayout>
+        </ng-template>
+
+    </ListView>
+
+</GridLayout>

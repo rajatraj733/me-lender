@@ -1,0 +1,23 @@
+<ActionBar title="Add new borrower">
+    <!--<ActionBar.actionItems>
+        <ActionItem/>
+    </ActionBar.actionItems>-->
+</ActionBar>
+<GridLayout rows="80, *, auto" columns="*">
+    <SearchBar row="0" hint="Enter name" (textChange)="filter($event)"
+    ></SearchBar>
+    <ListView row="1" [items]="displayedBorrowerList" class="list-group" [itemTemplateSelector]="templateSelector">
+        <ng-template [nsTemplateKey]="this.source.CONTACT" let-borrower = "item">
+            <GridLayout  class="list-group-item" [nsRouterLink]="['/add-new-borrower', borrower.contactId, this.mode.ADD_NEW]">
+                <Label [text]="borrower.name"></Label>
+            </GridLayout>
+        </ng-template>
+        <ng-template [nsTemplateKey]="this.source.FIRE_STORE" let-borrower = "item">
+            <DockLayout class="list-group-item" stretchLastChild="false" [nsRouterLink]="['/borrower-details', borrower.contactId]">
+                <Label dock="right" [text]="'Due : '+borrower.amount"></Label>
+                <Label style="background-color: red" dock="bottom" style="font-size: 12px;" [text]="borrower.lastPaid?'Last Paid: '+borrower.lastPaid:'Not Paid Yet'"></Label>
+                <Label  dock="left" [text]="borrower.name? borrower.name.toUpperCase(): ''"></Label>
+            </DockLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

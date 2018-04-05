@@ -1,0 +1,11 @@
+<ActionBar class="action-bar" [title]="borrower?borrower.name:'Loading Borrower'">
+
+</ActionBar>
+<GridLayout style="background-color: black;color: white; padding-top: 100px;" rows="40, 40, 80, 100, 100, *" columns="100, 100, *">
+    <Label  text="Enter Amount" row="0" col="0"></Label>
+    <TextField [(ngModel)]="amount" keyboardType="number"  style="background-color: white; color: black;" class="input input-border" row="0" col="1" colSpan="2"></TextField>
+    <Label text="Pick Date" row="1" col="0"></Label>
+    <DatePicker (dateChange)="onDateChange($event)"  style="background-color: white;" (loaded)="onPickerLoaded($event)" verticalAlignment="center" row="2" col="0" colSpan="3"></DatePicker>
+    <Button (tap)="addTransaction()" row="3" colSpan="3" style="background-color: white; color: black;" text="Add Transaction"></Button>
+
+</GridLayout>

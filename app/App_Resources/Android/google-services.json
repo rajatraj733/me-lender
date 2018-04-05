@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "123406143650",
+    "firebase_url": "https://me-lender.firebaseio.com",
+    "project_id": "me-lender",
+    "storage_bucket": "me-lender.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123406143650:android:c6d18de8ea7178d8",
+        "android_client_info": {
+          "package_name": "org.nativescript.melender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123406143650-4vf0din8r3lgbgvsej8ncdc5u5cjrvum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqOkg8Uo_Sa8ITqTDR0-zzkG4WkqN4McE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
