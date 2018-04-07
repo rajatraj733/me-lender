@@ -15,8 +15,8 @@ const routes: Routes = [
     { path: "dashboard", component: DashboardComponent},
     { path: "borrower-list", component: BorrowerListComponent},
     { path: "new-borrower-list", component: NewBorrowerListComponent},
-    { path: "add-new-borrower/:id/:mode", component: AddTransactionComponent},
-    { path: "borrower-details/:id", component: BorrowerDetailsComponent},
+    { path: "add-transaction/:name/:mode", component: AddTransactionComponent},
+    { path: "borrower-details/:name", component: BorrowerDetailsComponent},
     { path: "items", component: ItemsComponent },
     { path: "items/item/:id", component: ItemDetailComponent },
 ];

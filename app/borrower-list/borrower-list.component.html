@@ -9,7 +9,7 @@
                 ></SearchBar>
     <ListView [items]="displayedBorrowerList" class="list-group" row="1">
         <ng-template let-borrower="item">
-            <DockLayout class="list-group-item" stretchLastChild="false" [nsRouterLink]="['/borrower-details', borrower.contactId]">
+            <DockLayout class="list-group-item" stretchLastChild="false" [nsRouterLink]="['/borrower-details', borrower.name]">
                 <Label dock="right" [text]="'Due : '+borrower.amount"></Label>
                 <Label style="background-color: red" dock="bottom" style="font-size: 12px;" [text]="borrower.lastPaid?'Last Paid: '+borrower.lastPaid:'Not Paid Yet'"></Label>
                 <Label  dock="left" [text]="borrower.name?borrower.name.toUpperCase():''"></Label>

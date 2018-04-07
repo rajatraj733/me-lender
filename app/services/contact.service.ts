@@ -35,10 +35,10 @@ export class ContactService {
         }
     }
 
-    getContactById(id: number): Promise<Borrower> {
+    getContactByName(name: string): Promise<Borrower> {
         return this.getContacts().then((borrowers: Borrower[]) => {
             for(const borrower of borrowers) {
-                if(borrower.contactId === id) {
+                if(borrower.name === name) {
                     return borrower;
                 }
             }

@@ -30,14 +30,16 @@ export class BorrowerService {
         this.newBorrowers$ = new Promise((resolve, reject) => {
             this.contactService.getContacts().then((contacts: Borrower[]) => {
                 this.newBorrowers = [];
-                this.firestoreService.getAllBorrowers().then((oBorrowers: Borrower[]) => {
-                    const borrowers = JSON.parse(JSON.stringify(oBorrowers));
-                    borrowers.push(new Borrower());
+                this.firestoreService.getAllBorrowers().then((borrowers: Borrower[]) => {
                     let i = 0;
                     for (const contact of contacts) {
-                        if (contact.name === borrowers[i].name) {
-                            this.newBorrowers.push(borrowers[i]);
-                            i++;
+                        if (i < borrowers.length) {
+                            if (contact.name === borrowers[i].name) {
+                                this.newBorrowers.push(borrowers[i]);
+                                i++;
+                            } else {
+                                this.newBorrowers.push(contact);
+                            }
                         } else {
                             this.newBorrowers.push(contact);
                         }
@@ -53,10 +55,10 @@ export class BorrowerService {
 
     }
 
-    getBorrowerByContactId(id: number): Promise<Borrower> {
+    getBorrowerByName(name: string): Promise<Borrower> {
         return this.getBorrowerList().then((borrowers: Borrower[]) => {
            for(const borrower of borrowers) {
-               if(borrower.contactId === id) {
+               if(borrower.name === name) {
                    return borrower;
                }
            }

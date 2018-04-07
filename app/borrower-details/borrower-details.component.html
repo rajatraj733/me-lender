@@ -7,11 +7,15 @@
 </ActionBar>
 
 <StackLayout orientation="vertical" style="background-color: black; color: white">
-    <Label  horizontalAlignment="center" [text]="borrower?borrower.name:'Loading'" class="h3"></Label>
+    <Label  horizontalAlignment="center" [text]="borrower?borrower.name:'Loading'" class="h2"></Label>
     <StackLayout horizontalAlignment="stretch" orientation="horizontal" marginTop="20">
         <StackLayout verticalAlignment="center" width="50%"  orientation="horizontal"><Label text="Due: " verticalAlignment="center"></Label>
             <Label [text]="borrower?borrower.amount:'Loading'" verticalAlignment="center"></Label></StackLayout>
         <StackLayout verticalAlignment="center" width="50%"  orientation="horizontal"><Label text="Last Paid: " verticalAlignment="center"></Label>
             <Label [text]="borrower?borrower.lastPaid?borrower.lastPaid:'Not paid':'Loading'" verticalAlignment="center"></Label></StackLayout>
+    </StackLayout>
+    <StackLayout *ngIf="borrower" orientation="horizontal" horizontalAlignment="stretch" marginTop="20">
+        <Button text="Returning Money" width="50%" [nsRouterLink]="['/add-transaction', borrower.name, mode.RETURNED]"></Button>
+        <Button text="Borrowing Money" width="50%" [nsRouterLink]="['/add-transaction', borrower.name, mode.BORROWED]"></Button>
     </StackLayout>
 </StackLayout>

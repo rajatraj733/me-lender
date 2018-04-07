@@ -83,13 +83,15 @@ export class FireStoreService {
         return transactionCollection.add({
             amount: transaction.amount,
             date: transaction.date,
-            borrower: transaction.borrower.name
+            borrower: transaction.borrower.name,
+            comment: transaction.comment
         }).then(documentRef => {
             console.log(`transaction added with ${documentRef.id}`);
             return documentRef;
         });
     }
     updateBorrower(borrower: Borrower): Promise<string> {
+        borrower.source = Const.source.FIRE_STORE;
         return firebase.firestore().collection(Const.collection.BORROWERS).doc(borrower.name)
             .update(borrower).then(() => {
             return 'borrower updated';

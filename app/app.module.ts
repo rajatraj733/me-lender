@@ -16,6 +16,8 @@ import {NativeScriptFormsModule} from "nativescript-angular";
 import {FireStoreService} from "./services/firestore.service";
 import {BorrowerDetailsComponent} from "./borrower-details/borrower-details.component";
 import {TransactionService} from "./services/transaction.service";
+import {ActivityIndicatorComponent} from "./activity-indicator/activity-indicator.component";
+import {ActivityIndicatorService} from "./services/activity-indicator.service";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -40,14 +42,16 @@ import {TransactionService} from "./services/transaction.service";
         BorrowerListComponent,
         NewBorrowerListComponent,
         AddTransactionComponent,
-        BorrowerDetailsComponent
+        BorrowerDetailsComponent,
+        ActivityIndicatorComponent
     ],
     providers: [
         ItemService,
         BorrowerService,
         ContactService,
         FireStoreService,
-        TransactionService
+        TransactionService,
+        ActivityIndicatorService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
